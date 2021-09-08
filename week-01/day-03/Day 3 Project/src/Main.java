@@ -532,13 +532,17 @@ public class Main {
         // The pyramid should have as many lines as the number was
 
         int x = scanner.nextInt();
-        String row = ""
 
-        for (int i = 1; i <= x; i += 2) {
-            row = (((x-i)/2)*"") +  (i* "*")
+        for (int i = 1; i < x; i++) {
+            for ( j = 0; j < x-i; j++) {
+                System.out.println(" ");
+                }
+            for (int k = i; k <= i ; k++) {
+                System.out.println("* ");
+            }
+
+
         }
-
-
 
 
 
