@@ -10,5 +10,13 @@ public class IntroduceYourself {
         //  John Doe
         //  31
         //  1.87
+
+        String myName = "Pavol Rehak";
+        int myAge = 29;
+        double heightMeters = 1.82;
+
+        System.out.println(myName);
+        System.out.println(myAge);
+        System.out.println(heightMeters);
     }
 }
