@@ -511,13 +511,97 @@ public class Main {
         //
         // The triangle should have as many lines as the number was
 
-        int triangleNum = scanner.nextInt();
+       /* int triangleNum = scanner.nextInt();
         String output = "";
 
         for (int i = 1; i <= triangleNum; i++){
             output += "*";
             System.out.println(output);
+        }*/
+
+        //Task DrawDiagonal
+
+        // Write a program that reads a number from the standard input, then draws a
+        // square like this:
+        //
+        //
+        // %%%%%
+        // %%  %
+        // % % %
+        // %  %%
+        // %%%%%
+        //
+        // The square should have as many lines as the number was
+
+       /* int x = scanner.nextInt();
+
+        for (int i = 1; i <= x; i++) {   //current line
+            if(i == 1 || i ==x){
+                for (int st = 0; st < x; st++){   //prints first and last line of the shape
+                    System.out.print("%");
+                }
+            }
+            else{
+                for (int k = 1; k <= x ; k++) {    // prints left and right borders and diagonal
+                    if(k ==1 || k== x || k == i){
+                        System.out.print("%");
+                    }
+                    else{
+                        System.out.print(" ");
+                    }
+                }
+                }
+
+            System.out.println();
+        }*/
+
+        //Task
+        // Write a program that stores a number and the user has to figure it out
+        // The user can input guesses
+        // After each guess the program would tell one of the following:
+        //
+        // The stored number is higher
+        // The stored number is lower
+        // You found the number: 8
+
+        /*int guessNumber = 10;
+        int input = scanner.nextInt();
+
+        while(input != guessNumber){
+            if (input > guessNumber){
+                System.out.println("Stored number is lower");
+                input = scanner.nextInt();
+            }
+            else{
+                System.out.println("Stored number is higher");
+                input = scanner.nextInt();
+            }
+
         }
+        System.out.println("You found the number:" + guessNumber);*/
+
+        //Task
+        // Crate a program that draws a chess table like this
+        //
+        // % % % %
+        //  % % % %
+        // % % % %
+        //  % % % %
+        // % % % %
+        //  % % % %
+        // % % % %
+        //  % % % %
+        /*System.out.println("Please, type number of rows");
+        int input = scanner.nextInt();
+        for (int i = 0; i < input; i++) {
+            if(i % 2 != 0){
+                System.out.println(" % % % %");
+            }
+            else{
+                System.out.println("% % % % ");
+            }
+
+        }*/
 
         //Task DrawPyramid
         // Write a program that reads a number from the standard input, then draws a
@@ -531,18 +615,112 @@ public class Main {
         //
         // The pyramid should have as many lines as the number was
 
-        int x = scanner.nextInt();
-
-        for (int i = 1; i < x; i++) {
-            for ( j = 0; j < x-i; j++) {
-                System.out.println(" ");
-                }
-            for (int k = i; k <= i ; k++) {
-                System.out.println("* ");
+       /* int input = scanner.nextInt();
+        for (int i = 0; i <= input; i++) {  //Iterates over lines
+            for (int k = 0; k < input -i; k++) {
+                System.out.print(" ");
             }
+            for (int star = 0; star < 2* i -1  ; star++) {
+                System.out.print("*");
 
+            }
+            System.out.println();
 
         }
+*/
+        //Task DrawDiamond
+        // Write a program that reads a number from the standard input, then draws a
+        // diamond like this:
+        //
+        //
+        //    *
+        //   ***
+        //  *****
+        // *******
+        //  *****
+        //   ***
+        //    *
+        //
+        // The diamond should have as many lines as the number was
+
+        /*int diamond = scanner.nextInt();
+
+        for (int i = 0; i <= (diamond+1)/2; i++) {  //Iterates over lines
+            for (int k = 0; k < diamond/2 - i +1; k++) {
+                System.out.print(" ");
+            }
+            for (int star = 0; star < 2 * i - 1; star++) {
+                System.out.print("*");
+
+            }
+            System.out.println();
+        }
+        for (int i = diamond/2; i >= 0; i--) {
+            for(int space = diamond/2+1; space > i  ; space--){
+                System.out.print(" ");
+            }
+            for (int star = 1; star <= i*2-1; star++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }*/
+
+        //Task
+        // Write a program that reads a number from the standard input, then draws a
+        // square like this:
+        //
+        //
+        // %%%%%%
+        // %    %
+        // %    %
+        // %    %
+        // %    %
+        // %%%%%%
+        //
+        // The square should have as many lines as the number was
+
+
+        /*int lines = scanner.nextInt();
+
+        for (int i = 0; i < lines; i++) {
+            for (int p = 0; p <= lines-1; p++)
+                if(i == 0 || i == lines-1 || p == 0 || p == lines-1) {
+                    System.out.print("%");
+                    }
+
+                else {
+                    System.out.print(" ");
+
+
+            }
+            System.out.println();
+
+        }*/
+
+        //Task ParametricAverage
+        // Write a program that asks for a number
+        // It would ask this many times to enter an integer
+        // If all the integers are entered it should print the sum and average of these
+        // integers like:
+        //
+        // Sum: 22, Average: 4.4
+
+      /*  System.out.println("Input number of numbers to be averaged");
+        int count = scanner.nextInt();
+        int sum = 0;
+        for(int numbers = 0; numbers < count; numbers++){
+            System.out.println("Input a number to be averaged: ");
+            sum += scanner.nextInt();
+        }
+        System.out.println("Sum is:" + sum + "Average is: " + (sum/count));*/
+
+
+
+
+
+
+
+
 
 
 
