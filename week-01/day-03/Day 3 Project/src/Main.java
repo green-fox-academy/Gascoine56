@@ -643,7 +643,7 @@ public class Main {
         //
         // The diamond should have as many lines as the number was
 
-        /*int diamond = scanner.nextInt();
+        int diamond = scanner.nextInt();
 
         for (int i = 0; i <= (diamond+1)/2; i++) {  //Iterates over lines
             for (int k = 0; k < diamond/2 - i +1; k++) {
@@ -663,7 +663,7 @@ public class Main {
                 System.out.print("*");
             }
             System.out.println();
-        }*/
+        }
 
         //Task
         // Write a program that reads a number from the standard input, then draws a
