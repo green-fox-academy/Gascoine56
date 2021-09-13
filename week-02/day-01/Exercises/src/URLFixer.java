@@ -3,13 +3,12 @@ public class URLFixer {
     // Also, the URL is missing a crucial component, find out what it is and insert it too!
     // Try to solve it more than once using different String functions!
     public static void main(String... args) {
-        String url = "https//www.reddit.com/r/nevertellmethebots";
-        String tempUrl = url.substring(5);
-        String fixer = "https:";
-        String fixedUrl = fixer.concat(tempUrl);
-        fixedUrl = fixedUrl.replace("bots","odds");
+        StringBuilder url = new StringBuilder("https//www.reddit.com/r/nevertellmethebots");
+        url.insert(5,":");
+        url.replace(39,43, "odds");
 
 
-        System.out.println(fixedUrl);
+
+        System.out.println(url);
     }
 }
