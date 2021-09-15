@@ -60,28 +60,28 @@ public class Lottery {
             }
         }
         for (String key : hm.keySet()) {
-            if (hm.get(key) > count2 && hm.get(key) < count1) {
+            if (hm.get(key) > count2 && hm.get(key) <= count1 && !key.equals(top1))  {
                 count2 = hm.get(key);
                 top2 = key;
 
             }
         }
         for (String key : hm.keySet()) {
-            if (hm.get(key) > count3 && hm.get(key) < count2) {
+            if (hm.get(key) > count3 && hm.get(key) <= count2 && !key.equals(top1) && !key.equals(top2)) {
                 count3 = hm.get(key);
                 top3 = key;
 
             }
         }
         for (String key : hm.keySet()) {
-            if (hm.get(key) > count4 && hm.get(key) < count3) {
+            if (hm.get(key) > count4 && hm.get(key) <= count3 && !key.equals(top1) && !key.equals(top2) && !key.equals(top3)) {
                 count4 = hm.get(key);
                 top4 = key;
 
             }
         }
         for (String key : hm.keySet()) {
-            if (hm.get(key) > count5 && hm.get(key) < count4) {
+            if (hm.get(key) > count5 && hm.get(key) <= count4 &&!key.equals(top4) && !key.equals(top1) && !key.equals(top2) && !key.equals(top3)) {
                 count5 = hm.get(key);
                 top5 = key;
 
