@@ -11,7 +11,7 @@ public class Exercise1 {
        int x1 = WIDTH/2;
        int y1 = 0;
        //left point
-       int x2 = 0;
+       int x2 =  0;
        int y2 = HEIGHT;
        //right point
        int x3 = WIDTH;
@@ -19,28 +19,15 @@ public class Exercise1 {
 
        int d = WIDTH/20;
 
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 25; i++) {
             graphics.drawLine(x2 + d*i/2, y2 - i*d, x3 - d*i/2, y3 - i*d);
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 25; i++) {
             graphics.drawLine(x2 + i*d, y2, x1 + i * d/2, y1 + i*d);
         }
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 25; i++) {
             graphics.drawLine(x1 - i*d/2 , y1 + i*d, x3 - i*d, y3);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     // Don't touch the code below

@@ -202,17 +202,17 @@ public class Main {
         // The program should ask for the name of the User
         Scanner scanner = new Scanner(System.in);
 
-        /*System.out.println("What is your name?");
+        System.out.println("What is your name?");
         String userName = scanner.nextLine();
-        System.out.println("Hello, " + userName + " !");*/
+        System.out.println("Hello, " + userName + " !");
 
         //Task MileToKmConvertor
         // Write a program that asks for a double that is a distance in miles,
         // then it converts that value to kilometers and prints it
 
-        /*System.out.println("Input distance in miles as a decimal number: ");
+        System.out.println("Input distance in miles as a decimal number: ");
         double distMiles = scanner.nextDouble();
-        System.out.println("Distance in kilometers is: " + distMiles * 1.60934);*/
+        System.out.println("Distance in kilometers is: " + distMiles * 1.60934);
 
         //Task AnimalsAndLegs
         // Write a program that asks for two integers
@@ -220,12 +220,12 @@ public class Main {
         // The second represents the number of pigs owned by the farmer
         // It should print how many legs all the animals have
 
-        /*System.out.println("How many chicken  does the farmer have? ");
+        System.out.println("How many chicken  does the farmer have? ");
         int chicken = scanner.nextInt();
         System.out.println("How many pigs  does the farmer have? ");
         int pigs = scanner.nextInt();
 
-        System.out.println("Total number of legs of all animals is: " + (chicken*2 + pigs * 4));*/
+        System.out.println("Total number of legs of all animals is: " + (chicken*2 + pigs * 4));
 
         //Task AverageOfInput
 
@@ -234,7 +234,7 @@ public class Main {
         //
         // Sum: 22, Average: 4.4
 
-        /*int sum = 0;
+        int sum = 0;
         System.out.println("Input 5 integers in a row");
         sum += scanner.nextInt();
         sum += scanner.nextInt();
@@ -242,12 +242,12 @@ public class Main {
         sum += scanner.nextInt();
         sum += scanner.nextInt();
 
-        System.out.println("Sum: " + sum + " , Average: " + (sum/5.));*/
+        System.out.println("Sum: " + sum + " , Average: " + (sum/5.));
 
         //OddEven
         // Write a program that reads a number from the standard input,
         // then prints "Odd" if the number is odd, or "Even" if it is even
-        /*System.out.println("Type an integer: ");
+        System.out.println("Type an integer: ");
         int input = scanner.nextInt();
 
         if(input % 2 == 0){
@@ -255,7 +255,7 @@ public class Main {
         }
         else{
             System.out.println("The provided number is odd");
-        }*/
+        }
 
         //Task OneTwoALot
         // Write a program that reads a number form the standard input,
@@ -264,7 +264,7 @@ public class Main {
         // If the number is two it should print: Two
         // If the number is more than two it should print: A lot
 
-       /* System.out.println("Type a number: ");
+        System.out.println("Type a number: ");
         double x = scanner.nextDouble();
 
         if(x <= 0){
@@ -278,11 +278,11 @@ public class Main {
         }
         else{
             System.out.println("A lot");
-        }*/
+        }
         //Task PrintBigger
         // Write a program that asks for two numbers and prints the bigger one
 
-        /*System.out.println("Input 2 numbers to compare");
+        System.out.println("Input 2 numbers to compare");
         double p = scanner.nextDouble();
         double r = scanner.nextDouble();
 
@@ -294,7 +294,7 @@ public class Main {
         }
         else {
             System.out.println("Even");
-        }*/
+        }
 
         //Task PartyIndicator
         // Write a program that asks for two numbers
@@ -313,7 +313,7 @@ public class Main {
         // If no girls are coming, regardless the count of the people
         // it should print: Sausage party
 
-       /* System.out.println("Input number of girls in the party");
+        System.out.println("Input number of girls in the party");
         int girls = scanner.nextInt();
         System.out.println("Input number of guys in the party");
         int guys = scanner.nextInt();
@@ -342,7 +342,7 @@ public class Main {
             output1++;
         }
 
-        System.out.println(output1);*/
+        System.out.println(output1);
 
 
         b = 13;
@@ -415,18 +415,18 @@ public class Main {
         // Create a program that writes this line 100 times:
         // "I won't cheat on the exam!"
 
-      /*  int counter = 0;
+        int counter = 0;
         while(counter  < 100){
             System.out.println("I won't cheat on the exam!");
             counter++;
-        }*/
+        }
 
         //Task PrintEven
         // Create a program that prints all the even numbers between 0 and 500
 
-       /* for (int i = 0; i < 500; i+=2) {
+        for (int i = 0; i < 500; i+=2) {
             System.out.println(i);
-        }*/
+        }
 
         //Task
         // Create a program that asks for a number and prints the multiplication table with that number
@@ -445,12 +445,11 @@ public class Main {
         // 9 * 15 = 135
         // 10 * 15 = 150
 
-        /*int input = scanner.nextInt();
+        int input = scanner.nextInt();
 
         for (int i = 1; i <11 ; i++) {
             System.out.println(i + " * " + input + " = " + (i*input));
         }
-*/
         //Task CountFromTo
         // Create a program that asks for two numbers
         // If the second number is not bigger than the first one it should print:
@@ -466,7 +465,7 @@ public class Main {
         // 4
         // 5
 
-       /* System.out.println("Input 2 number: first the lower(start of count, second the higher(end of count");
+        System.out.println("Input 2 number: first the lower(start of count, second the higher(end of count");
         int smaller = scanner.nextInt();
         int bigger = scanner.nextInt();
 
@@ -477,7 +476,7 @@ public class Main {
         }
         else{
             System.out.println("The second number should be bigger");
-        }*/
+        }
 
         //Task FizzBuzz
         // Write a program that prints the numbers from 1 to 100
@@ -511,13 +510,13 @@ public class Main {
         //
         // The triangle should have as many lines as the number was
 
-       /* int triangleNum = scanner.nextInt();
+        int triangleNum = scanner.nextInt();
         String output = "";
 
         for (int i = 1; i <= triangleNum; i++){
             output += "*";
             System.out.println(output);
-        }*/
+        }
 
         //Task DrawDiagonal
 
@@ -533,7 +532,7 @@ public class Main {
         //
         // The square should have as many lines as the number was
 
-       /* int x = scanner.nextInt();
+        int x = scanner.nextInt();
 
         for (int i = 1; i <= x; i++) {   //current line
             if(i == 1 || i ==x){
@@ -553,7 +552,7 @@ public class Main {
                 }
 
             System.out.println();
-        }*/
+        }
 
         //Task
         // Write a program that stores a number and the user has to figure it out
@@ -564,7 +563,7 @@ public class Main {
         // The stored number is lower
         // You found the number: 8
 
-        /*int guessNumber = 10;
+        int guessNumber = 10;
         int input = scanner.nextInt();
 
         while(input != guessNumber){
@@ -578,7 +577,7 @@ public class Main {
             }
 
         }
-        System.out.println("You found the number:" + guessNumber);*/
+        System.out.println("You found the number:" + guessNumber);
 
         //Task
         // Crate a program that draws a chess table like this
@@ -591,7 +590,7 @@ public class Main {
         //  % % % %
         // % % % %
         //  % % % %
-        /*System.out.println("Please, type number of rows");
+        System.out.println("Please, type number of rows");
         int input = scanner.nextInt();
         for (int i = 0; i < input; i++) {
             if(i % 2 != 0){
@@ -601,7 +600,7 @@ public class Main {
                 System.out.println("% % % % ");
             }
 
-        }*/
+        }
 
         //Task DrawPyramid
         // Write a program that reads a number from the standard input, then draws a
@@ -615,7 +614,7 @@ public class Main {
         //
         // The pyramid should have as many lines as the number was
 
-       /* int input = scanner.nextInt();
+        int input = scanner.nextInt();
         for (int i = 0; i <= input; i++) {  //Iterates over lines
             for (int k = 0; k < input -i; k++) {
                 System.out.print(" ");
@@ -627,7 +626,6 @@ public class Main {
             System.out.println();
 
         }
-*/
         //Task DrawDiamond
         // Write a program that reads a number from the standard input, then draws a
         // diamond like this:
@@ -680,7 +678,7 @@ public class Main {
         // The square should have as many lines as the number was
 
 
-        /*int lines = scanner.nextInt();
+        int lines = scanner.nextInt();
 
         for (int i = 0; i < lines; i++) {
             for (int p = 0; p <= lines-1; p++)
@@ -695,7 +693,7 @@ public class Main {
             }
             System.out.println();
 
-        }*/
+        }
 
         //Task ParametricAverage
         // Write a program that asks for a number
@@ -705,14 +703,14 @@ public class Main {
         //
         // Sum: 22, Average: 4.4
 
-      /*  System.out.println("Input number of numbers to be averaged");
+        System.out.println("Input number of numbers to be averaged");
         int count = scanner.nextInt();
         int sum = 0;
         for(int numbers = 0; numbers < count; numbers++){
             System.out.println("Input a number to be averaged: ");
             sum += scanner.nextInt();
         }
-        System.out.println("Sum is:" + sum + "Average is: " + (sum/count));*/
+        System.out.println("Sum is:" + sum + "Average is: " + (sum/count));
 
 
 
