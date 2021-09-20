@@ -20,8 +20,8 @@ public class Main {
 
         for (int i = 0; i < pokemonListOfAsh.size(); i++) {
             Pokemon ashPokemon = new Pokemon(pokemonListOfAsh.get(i).name, pokemonListOfAsh.get(i).type, pokemonListOfAsh.get(i).effectiveAgainst);
-            if (ashPokemon.isEffectiveAgainst(wildPokemon)){
-               System.out.print("I choose you, " + ashPokemon.name);
+            if (ashPokemon.isEffectiveAgainst(wildPokemon)) {
+                System.out.print("I choose you, " + ashPokemon.name);
             }
 
         }

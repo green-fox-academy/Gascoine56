@@ -1,5 +1,6 @@
 package PostIt;
-class Main{
+
+class Main {
 
     public static void main(String[] args) {
         PostIt one = new PostIt();

@@ -6,8 +6,8 @@ public class BlogPost {
     String text;
     String publicationDate;
 
-    void blogPost(String authorName, String title, String text, String publicationDate){
+    void blogPost(String authorName, String title, String text, String publicationDate) {
         System.out.println(title + " titled by " + authorName + " posted at " + publicationDate);
         System.out.println(text);
     }
-    }
+}

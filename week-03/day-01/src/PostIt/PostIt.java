@@ -6,5 +6,4 @@ public class PostIt {
     String textColor;
 
 
-
 }

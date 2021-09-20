@@ -9,11 +9,11 @@ public class Counter {
     }
 
     public Counter(int counter) {
-    number = counter;
-    this.counter = counter;
+        number = counter;
+        this.counter = counter;
     }
 
-     public void add(int number) {
+    public void add(int number) {
         counter += number;
     }
 

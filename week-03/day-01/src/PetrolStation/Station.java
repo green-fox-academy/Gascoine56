@@ -3,11 +3,12 @@ package PetrolStation;
 public class Station {
     private int gasAmount;
 
-    public void refill(Car car){
+    public void refill(Car car) {
         this.gasAmount -= car.getCapacity();
         car.setGasAmount(car.getCapacity());
     }
-    public int getGasAmount(){
+
+    public int getGasAmount() {
         return this.gasAmount;
     }
 
