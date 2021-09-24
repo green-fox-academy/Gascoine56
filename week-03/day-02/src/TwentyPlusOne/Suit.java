@@ -1,2 +1,5 @@
-package TwentyPlusOne;public enum Suit {
+package TwentyPlusOne;
+
+public enum Suit {
+    CLUBS, DIAMONDS, HEARTS, SPADES
 }
