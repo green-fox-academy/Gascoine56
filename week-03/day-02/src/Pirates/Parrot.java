@@ -18,6 +18,5 @@ public class Parrot {
             case 2 -> System.out.println("Blow The Man Down");
             case 3 -> System.out.println("Cleave Him to the Brisket");
         }
-
     }
 }

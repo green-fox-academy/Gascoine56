@@ -19,10 +19,11 @@ public class Ship {
             System.out.println(
                     "  /  /  /  /\n" +
                             " /----------(\n" +
-                            "< x x x o  X(\n" +
+                            "< o o o o  X(\n" +
                             " \\----------(\n" +
                             "  \\  \\  \\  \\");
             System.out.println("The captain is dead!");
+            System.out.println(howManyAlive() + " pirates are still alive.");
         } else {
             System.out.println(
                     "  /  /  /  /\n" +
@@ -63,13 +64,14 @@ public class Ship {
         return crew - captainDrunk;
 
     }
-    public int getShipSize(){
+
+    public int getShipSize() {
         return ship.size();
     }
 
     public boolean battle(Ship ship) {
         boolean result = ship.getCalculatedScore() <= this.getCalculatedScore();
-        if(result){
+        if (result) {
             Random x = new Random();
             int losses = x.nextInt(ship.getShipSize());
             for (int i = 1; i <= losses; i++) {
@@ -79,8 +81,7 @@ public class Ship {
             for (int i = 0; i < ship.getShipSize(); i++) {
                 this.ship.get(i).drinkSomeRum();
             }
-        }
-        else{
+        } else {
             Random x = new Random();
             int losses = x.nextInt(ship.howManyAlive());
             for (int i = 1; i <= losses; i++) {
@@ -92,5 +93,13 @@ public class Ship {
             }
         }
         return result;
+    }
+
+    public void killRandomPirates() {
+        Random x = new Random();
+        int losses = x.nextInt(ship.size());
+        for (int i = 1; i <= losses; i++) {
+            ship.get(i).die();
         }
+    }
 }
