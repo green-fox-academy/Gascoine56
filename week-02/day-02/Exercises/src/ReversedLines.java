@@ -15,37 +15,21 @@ public class ReversedLines {
         Path write = Path.of("src/ReversedLines");
 
         reverseLines(read, write);
-
     }
-    public static void reverseLines(Path read, Path write){
 
-        try{
-            List <String> readList = Files.readAllLines(read, StandardCharsets.UTF_8);
-            List <String> writeList = new ArrayList<>();
+    public static void reverseLines(Path read, Path write) {
+
+        try {
+            List<String> readList = Files.readAllLines(read, StandardCharsets.UTF_8);
+            List<String> writeList = new ArrayList<>();
             for (int i = 0; i < readList.size(); i++) {
                 StringBuffer x = new StringBuffer(readList.get(i));
                 writeList.add(x.reverse().toString());
-
-
-
-
             }
             Files.write(write, writeList);
-
-
-
-
-
-
-
-
-
-        }catch(IOException e){
+        } catch (IOException e) {
+            System.out.println("Read file or write file not successful");
             System.exit(456788);
         }
-
-
     }
-
-
 }
