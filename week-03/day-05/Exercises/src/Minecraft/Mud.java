@@ -5,6 +5,5 @@ public class Mud extends Block {
 
     public Mud() {
         super("Mud", "Dark grey", 0, false, blocks);
-
     }
-  }
+}
