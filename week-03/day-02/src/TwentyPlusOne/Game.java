@@ -17,7 +17,7 @@ public class Game {
         System.out.println("The score of your opponent is : " + opponentScore);
         System.out.println("Your initial score is: " + playerScore);
         while (playerScore <= 21){
-            System.out.println("Do you want to pull another card? (yes/no");
+            System.out.println("Do you want to pull another card? (yes/no)");
             String x =scanner.nextLine();
             if (x.equals("yes")){
                 playerScore += deck.getCard(0).rankValue;
