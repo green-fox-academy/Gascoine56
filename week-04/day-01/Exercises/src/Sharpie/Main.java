@@ -3,12 +3,12 @@ package Sharpie;
 public class Main {
     public static void main(String[] args) {
         SharpieSet abc = new SharpieSet();
-        Sharpie x = new Sharpie("green", 550.3);
+        Sharpie x = new Sharpie();
 
-        abc.add(new Sharpie("blue", 20.0));
-        abc.add(new Sharpie("red", 80.0));
-        abc.add(new Sharpie("orange", 40.0));
-        abc.add(new Sharpie("white", 2.0));
+        abc.add(new Sharpie());
+        abc.add(new Sharpie());
+        abc.add(new Sharpie());
+        abc.add(new Sharpie());
         abc.add(x);
 
         System.out.println(abc.countUsable());
