@@ -18,7 +18,7 @@ public class Remove {
         } catch (IOException e) {
             System.out.println("Failed reading file.");
         }catch (IndexOutOfBoundsException e){
-            System.out.println("Number is not on the list, please check it again. ");
+            System.out.println("Number is not on the list, please try it again. ");
         }catch (NumberFormatException e){
             System.out.println("Unable to remove. Index has to be a number.");
         }

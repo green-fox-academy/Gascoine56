@@ -20,8 +20,8 @@ public class Main {
             String input = scanner.nextLine();
             //End program
             if (Objects.equals(input, "-q")) {
-                System.out.println("You still have so much to do! Are you sure you want to quit already? ");
-                System.exit(0);
+               Quit quit = new Quit();
+               quit.quit();
                 //List function
             } else if (Objects.equals(input, "-l")) {
                 List list = new List();
