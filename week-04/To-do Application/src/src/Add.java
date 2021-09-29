@@ -14,7 +14,7 @@ public class Add {
         Path path = Paths.get("src/src/TasksDatabase.txt");
         String str = input.substring(2);
         try {
-            Files.writeString(path, str + System.lineSeparator(),StandardOpenOption.APPEND);
+            Files.writeString(path, "[ ]" + str + System.lineSeparator(),StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.out.println("Can not find the database file. Task not recorded.");;
         }

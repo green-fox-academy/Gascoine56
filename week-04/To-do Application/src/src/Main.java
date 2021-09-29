@@ -1,5 +1,6 @@
 package src;
 
+import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("              Todo app");
         System.out.println("====================================");
-        String[] argDescriptions = {" List all tasks", " Add a new task", " Set a task completed", " Remove a task", " Quit application"};
+        String[] argDescriptions = {" List all tasks", " Add a new task", " Set a task completed", " Remove a task by index", " Quit application"};
 
         while (true) {
             for (int i = 0; i < args.length; i++) {
@@ -33,18 +34,24 @@ public class Main {
                     Add add = new Add();
                     add.addToList(input);
                 }
-            //Remove function
             } else if (input.charAt(0) == '-' && input.charAt(1) == 'r') {
-                if (input.length() == 2){
+                if (input.length() == 2) {
                     System.out.println("Unable to remove: No index provided.");
-                }
-                else{
+                } else {
                     Remove rem = new Remove();
-
+                    rem.removeFromList(input);
+                }
+                //Set completed
+            } else if (input.charAt(0) == '-' && input.charAt(1) == 'c') {
+                if (input.length() == 2) {
+                    System.out.println("Unable to remove: No index provided.");
+                }else {
+                    Check c = new Check();
+                    c.checkCompleted(input);
                 }
             }
-                //If command unknown
-            else{
+            //If command unknown
+            else {
                 System.out.println("Unknown command");
             }
         }
