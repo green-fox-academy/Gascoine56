@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Check {
-    public void checkCompleted(String input){
+    public void checkCompleted(String input) {
         Path path = Paths.get("src/src/TasksDatabase.txt");
         String str = input.replaceAll("[^0-9]", "");
         try {
@@ -18,11 +18,10 @@ public class Check {
             Files.write(path, lines);
         } catch (IOException e) {
             System.out.println("Failed reading file.");
-        }catch (IndexOutOfBoundsException e){
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("Number is not on the list. ");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Unable to remove. Index has to be a number.");
         }
     }
-
 }

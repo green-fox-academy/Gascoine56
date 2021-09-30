@@ -1,3 +1,5 @@
 [X] koupit pivo
 [X] uvarit veceri
 [X] vyprat pradlo
+[X] Chill
+[ ] Hovno

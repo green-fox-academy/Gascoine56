@@ -1,6 +1,5 @@
 package src;
 
-import java.io.FileNotFoundException;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -10,7 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("              Todo app");
         System.out.println("====================================");
-        String[] argDescriptions = {" List all tasks", " Add a new task", " Set a task completed", " Remove a task by index", " Quit application"};
+        String[] argDescriptions = {" List uncompleted tasks"," List all tasks", " Add a new task", " Set a task completed", " Remove a task by index", " Quit application"};
 
         while (true) {
             for (int i = 0; i < args.length; i++) {
@@ -20,12 +19,12 @@ public class Main {
             String input = scanner.nextLine();
             //End program
             if (Objects.equals(input, "-q")) {
-               Quit quit = new Quit();
-               quit.quit();
+                Quit quit = new Quit();
+                quit.quit();
                 //List function
-            } else if (Objects.equals(input, "-l")) {
+            } else if (input.charAt(0) == '-' && input.charAt(1) == 'l') {
                 List list = new List();
-                list.listAllTasks();
+                list.listAllTasks(input);
                 //Add function
             } else if (input.charAt(0) == '-' && input.charAt(1) == 'a') {
                 if (input.length() == 2) {
@@ -45,7 +44,7 @@ public class Main {
             } else if (input.charAt(0) == '-' && input.charAt(1) == 'c') {
                 if (input.length() == 2) {
                     System.out.println("Unable to remove: No index provided.");
-                }else {
+                } else {
                     Check c = new Check();
                     c.checkCompleted(input);
                 }

@@ -29,8 +29,9 @@ public class Quit {
                 String x = scanner.next();
                 if (x.equals("y")) {
                     System.exit(130);
+                    System.out.println("Alright, as is your right. Bye Bye.");
                 } else if (x.equals("n")) {
-                    System.out.println("Excellent, let's continiue!");
+                    System.out.println("Excellent, let's continue!");
                 } else {
                     System.out.println("Unrecognized input");
                 }
@@ -39,5 +40,4 @@ public class Quit {
             System.out.println("Failed reading file.");
         }
     }
-
 }
