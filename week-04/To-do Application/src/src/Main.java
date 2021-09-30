@@ -1,57 +1,97 @@
 package src;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("              Todo app");
-        System.out.println("====================================");
-        String[] argDescriptions = {" List uncompleted tasks"," List all tasks", " Add a new task", " Set a task completed", " Remove a task by index", " Quit application"};
-
-        while (true) {
-            for (int i = 0; i < args.length; i++) {
-                System.out.println(args[i] + argDescriptions[i]);
-            }
-            System.out.println("Todo is awaiting your instructions :");
-            String input = scanner.nextLine();
-            //End program
-            if (Objects.equals(input, "-q")) {
-                Quit quit = new Quit();
-                quit.quit();
-                //List function
-            } else if (input.charAt(0) == '-' && input.charAt(1) == 'l') {
+        String[] checkArr = {"-l", "-la", "-a", "-c", "-r", "-q"};
+        if (!Arrays.equals(args,checkArr)) {
+            String input = Arrays.toString(args);
+            Path path = Paths.get("C:\\Users\\Palo\\greenfox\\Gascoine56\\week-04\\To-do Application\\src\\src\\TasksDatabase.txt");
+            if (input.charAt(0) == '-' && (input.charAt(1) == 'l')) {
                 List list = new List();
-                list.listAllTasks(input);
+                list.listAllTasks(input, path);
                 //Add function
-            } else if (input.charAt(0) == '-' && input.charAt(1) == 'a') {
-                if (input.length() == 2) {
+            } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'a'))) {
+                if ((args[0].length() == 2)) {
                     System.out.println("Unable to add: No task provided");
                 } else {
                     Add add = new Add();
-                    add.addToList(input);
+                    add.addToList(input, path);
                 }
-            } else if (input.charAt(0) == '-' && input.charAt(1) == 'r') {
-                if (input.length() == 2) {
+            } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'r'))) {
+                if ((args[0].length() == 2)) {
                     System.out.println("Unable to remove: No index provided.");
                 } else {
                     Remove rem = new Remove();
-                    rem.removeFromList(input);
+                    rem.removeFromList(input, path);
                 }
                 //Set completed
-            } else if (input.charAt(0) == '-' && input.charAt(1) == 'c') {
-                if (input.length() == 2) {
+            } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'c'))) {
+                if ((args[0].length() == 2)) {
                     System.out.println("Unable to remove: No index provided.");
                 } else {
                     Check c = new Check();
-                    c.checkCompleted(input);
+                    c.checkCompleted(input,path);
                 }
             }
             //If command unknown
             else {
                 System.out.println("Unknown command");
+            }
+        } else {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("              Todo app");
+            System.out.println("====================================");
+            String[] argDescriptions = {" List uncompleted tasks", " List all tasks", " Add new tasks, use , to separate multiple inputs", " Set a task completed", " Remove a task by index", " Quit application"};
+            Path path = Paths.get("C:\\Users\\Palo\\greenfox\\Gascoine56\\week-04\\To-do Application\\src\\src\\TasksDatabase.txt");
+            while (true) {
+                for (int i = 0; i < args.length; i++) {
+                    System.out.println(args[i] + argDescriptions[i]);
+                }
+                System.out.println("Todo is awaiting your instructions :");
+                String input = scanner.nextLine();
+                //End program
+                if (Objects.equals(input, "-q")) {
+                    Quit quit = new Quit();
+                    quit.quit();
+                    //List function
+                } else if (input.charAt(0) == '-' && input.charAt(1) == 'l') {
+                    List list = new List();
+                    list.listAllTasks(input, path);
+                    //Add function
+                } else if (input.charAt(0) == '-' && input.charAt(1) == 'a') {
+                    if (input.length() == 2) {
+                        System.out.println("Unable to add: No task provided");
+                    } else {
+                        Add add = new Add();
+                        add.addToList(input, path);
+                    }
+                } else if (input.charAt(0) == '-' && input.charAt(1) == 'r') {
+                    if (input.length() == 2) {
+                        System.out.println("Unable to remove: No index provided.");
+                    } else {
+                        Remove rem = new Remove();
+                        rem.removeFromList(input, path);
+                    }
+                    //Set completed
+                } else if (input.charAt(0) == '-' && input.charAt(1) == 'c') {
+                    if (input.length() == 2) {
+                        System.out.println("Unable to remove: No index provided.");
+                    } else {
+                        Check c = new Check();
+                        c.checkCompleted(input, path);
+                    }
+                }
+                //If command unknown
+                else {
+                    System.out.println("Unknown command");
+                }
             }
         }
     }

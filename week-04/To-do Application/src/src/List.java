@@ -3,12 +3,9 @@ package src;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class List {
-    Path path = Paths.get("src/src/TasksDatabase.txt");
-
-    public void listAllTasks(String input) {
+    public void listAllTasks(String input, Path path) {
         try {
             java.util.List<String> lines = Files.readAllLines(path);
             if (lines.size() == 0) {
@@ -18,11 +15,13 @@ public class List {
                     for (int i = 0; i < lines.size(); i++) {
                         System.out.println((i + 1) + " - " + lines.get(i));
                     }
-                } else {
+                } else if (input.length() == 2) {
                     for (int i = 0; i < lines.size(); i++) {
                         if (lines.get(i).charAt(1) != 'X')
                             System.out.println((i + 1) + " - " + lines.get(i));
                     }
+                }else {
+                    System.out.println("Unknown command");
                 }
             }
         } catch (IOException e) {
