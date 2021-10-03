@@ -10,19 +10,19 @@ public class CAB {
     int numberOfGuesses = 0;
     Scanner scanner = new Scanner(System.in);
 
-
     public void checkGuess() {
         long x = 10000000;
 
         while (x > 9999) {
 
-                System.out.println("Guess a number 0 - 9999: ");
+            System.out.println("Guess a number 0 - 9999: ");
             try {
+                //used to see what number im guessing for testing purposes
                 x = scanner.nextLong();
-                if (x == 0000){
+                if (x == 0000) {
                     System.out.println("Correct number is " + lookingFor);
                 }
-            }catch (InputMismatchException exception){
+            } catch (InputMismatchException exception) {
                 System.out.println("Number is too big for Long value - Congratulations, you crashed the program!");
                 System.exit(20);
             }
@@ -36,7 +36,6 @@ public class CAB {
         }
     }
 
-
     public int returnCAB(String guessedNumber) {
         int cows = 0;
         int bulls = 0;
@@ -45,8 +44,8 @@ public class CAB {
                 cows += 1;
             } else {
                 for (int j = 0; j < 4; j++) {
-                    if (lookingFor.charAt(j) == guessedNumber.charAt(i))
-                       bulls += 1;
+                    if (guessedNumber.charAt(j) == lookingFor.charAt(i))
+                        bulls += 1;
                 }
             }
         }
@@ -54,10 +53,5 @@ public class CAB {
         System.out.println("Number of guesses : " + numberOfGuesses);
         System.out.println(cows + " cows, " + bulls + " bulls");
         return cows;
-
-
     }
-
-
 }
-
