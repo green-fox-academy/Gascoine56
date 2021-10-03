@@ -6,6 +6,7 @@ import java.nio.file.Path;
 
 public class List {
     public void listAllTasks(String input, Path path) {
+        System.out.println(input);
         try {
             java.util.List<String> lines = Files.readAllLines(path);
             if (lines.size() == 0) {
@@ -20,7 +21,7 @@ public class List {
                         if (lines.get(i).charAt(1) != 'X')
                             System.out.println((i + 1) + " - " + lines.get(i));
                     }
-                }else {
+                } else {
                     System.out.println("Unknown command");
                 }
             }

@@ -10,34 +10,39 @@ public class Main {
 
     public static void main(String[] args) {
         String[] checkArr = {"-l", "-la", "-a", "-c", "-r", "-q"};
-        if (!Arrays.equals(args,checkArr)) {
+        if (!Arrays.equals(args, checkArr)) {
             String input = Arrays.toString(args);
             Path path = Paths.get("C:\\Users\\Palo\\greenfox\\Gascoine56\\week-04\\To-do Application\\src\\src\\TasksDatabase.txt");
-            if (input.charAt(0) == '-' && (input.charAt(1) == 'l')) {
+            if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'l'))) {
+                input = input.substring(1).replace("]", "");
                 List list = new List();
                 list.listAllTasks(input, path);
                 //Add function
             } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'a'))) {
-                if ((args[0].length() == 2)) {
+                if ((args.length == 1)) {
                     System.out.println("Unable to add: No task provided");
                 } else {
                     Add add = new Add();
+                    input = input.substring(2).replace("]", "");
                     add.addToList(input, path);
                 }
             } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'r'))) {
-                if ((args[0].length() == 2)) {
+                if ((args.length) == 1) {
                     System.out.println("Unable to remove: No index provided.");
                 } else {
                     Remove rem = new Remove();
+                    input = input.substring(1).replace("]", "");
                     rem.removeFromList(input, path);
                 }
                 //Set completed
             } else if ((args[0].charAt(0) == '-' && (args[0].charAt(1) == 'c'))) {
-                if ((args[0].length() == 2)) {
+                if ((args.length == 1)) {
                     System.out.println("Unable to remove: No index provided.");
                 } else {
                     Check c = new Check();
-                    c.checkCompleted(input,path);
+                    input = input.substring(1).replace("]", "");
+                    System.out.println(input);
+                    c.checkCompleted(input, path);
                 }
             }
             //If command unknown
@@ -59,7 +64,7 @@ public class Main {
                 //End program
                 if (Objects.equals(input, "-q")) {
                     Quit quit = new Quit();
-                    quit.quit();
+                    quit.quit(path);
                     //List function
                 } else if (input.charAt(0) == '-' && input.charAt(1) == 'l') {
                     List list = new List();

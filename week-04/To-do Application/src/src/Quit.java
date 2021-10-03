@@ -3,14 +3,12 @@ package src;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Quit {
-    Path path = Paths.get("src/src/TasksDatabase.txt");
     java.util.List<String> lines;
 
-    public void quit() {
+    public void quit(Path path) {
         try {
             boolean allComplete = true;
             lines = Files.readAllLines(path);
