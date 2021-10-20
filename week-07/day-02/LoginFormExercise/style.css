@@ -1,0 +1,46 @@
+div{
+    color: gray;
+    background-color: white;
+    margin: 100px;
+    padding: 100px 50px;
+    text-align: left;
+}
+form{
+    padding: 20px 0;
+
+}
+input{
+    border-radius: 5px;
+    width: 100%;
+    height: 50px;
+    border-color: lightgrey;
+}
+input:focus{
+    outline: none !important;
+    color: limegreen;
+    border-color: limegreen;
+}
+button{
+    background-color: black;
+    color: white;
+    width: 100px;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+}
+i{
+    margin-left: -30px; 
+cursor: pointer;
+}
+body{
+    background-color: gray;
+}
+i {
+    cursor: pointer;
+    color: grey;
+}
+a{
+    margin-left: 70%;
+}
+
+

@@ -1,0 +1,7 @@
+input{
+    border-color: black;
+}
+input:empty:required{
+    outline: none;
+    border-color: red;    
+}

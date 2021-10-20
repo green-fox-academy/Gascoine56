@@ -1,0 +1,24 @@
+th{
+    background-color: black;
+    color: cornsilk;
+    padding: 20px 30px;
+    border-bottom: lightslategrey solid 3px;
+}
+td{
+    padding: 20px 30px;
+    border: solid lightslategrey;
+
+}
+table tr:nth-child(even){
+    background-color: lightgray;
+}
+table{
+    border-collapse: collapse;
+    width: 500px;
+    border: solid lightskyblue 20px;
+    text-align: left;
+    
+}
+tr{
+    border: solid lightslategrey;
+}

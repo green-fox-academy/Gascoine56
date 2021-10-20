@@ -1,0 +1,19 @@
+body{
+    background-color: grey;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+input{
+    outline: none;
+    border: none;
+    border-bottom: solid 5px greenyellow;
+}
+div{
+    background-color: ivory;
+    margin: 0 15%;
+    height: 500px;
+
+}
+form, h1{
+    margin-left: 10%;
+    padding: 5%;
+}
