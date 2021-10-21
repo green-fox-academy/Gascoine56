@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of books in the library</title>
+</head>
+<body>
+<h1>Books currently in the library: </h1>
+<div th:each="book : ${queriedBooks}">
+    <p th:text="${book.id} + '. ' + ${book.title} + ', written by ' + ${book.author} + ', released in ' + ${book.releaseYear}"></p>
+
+</div>
+</body>
+</html>
