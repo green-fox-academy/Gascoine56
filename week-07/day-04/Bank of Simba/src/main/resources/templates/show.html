@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Name: </h2>
+<p th:text="${account.name}"></p>
+<h2>Balance: </h2>
+<p th:text="${#numbers.formatDecimal(account.balance,3,2)} + ' Zebra'"></p>
+<h2>Animal Type: </h2>
+<p th:text="${account.animalType}"></p>
+</body>
+</html>

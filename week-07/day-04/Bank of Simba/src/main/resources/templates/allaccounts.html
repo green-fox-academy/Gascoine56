@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Our beloved customers</title>
+    <link rel="stylesheet" href="/allaccounts.css"/>
+    <link rel="stylesheet" href="../static/allaccounts.css">
+</head>
+<body>
+<h1>Our beloved customers and their accounts</h1>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>ID:</th>
+            <th>Name:</th>
+            <th>Type:</th>
+            <th>Balance:</th>
+            <th>Moral disposition:</th>
+            <th>Royalty:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}" th:style="${account.name.equals('Simba') ? 'color:red' : '' }">
+            <td th:text="${accountStat.index + 1}"></td>
+            <td th:text="${account.getName()}"></td>
+            <td th:text="${account.animalType}"></td>
+            <td th:text="${account.balance}"></td>
+            <!-- Im not going to ruin my work by changing switch statement, thank you! -->
+            <td th:switch="${account.moral}">
+                <div th:case="${account.moral.GOOD}">Good</div>
+                <div th:case="${account.moral.BAD}">Bad</div>
+                <div th:case="${account.moral.QUESTIONABLE}">Questionable</div>
+            </td>
+            <td th:if="${account.name.equals('Simba')}">King</td>
+            <td th:unless="${account.name.equals('Simba')}"></td>
+            <td>
+                <form th:action="@{|/showAll/${account.name}|}" method="post">
+                    <button type="submit">More money, please!</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <form action="/addAccount" method="post">
+                <td></td>
+                <td><input type="text" required="required" placeholder="Your name" name="name"></td>
+                <td><input type="text" required="required" placeholder="Animal kind" name="animalType"></td>
+                <td><input type="number" required="required" placeholder="Starting balance" name="balance"></td>
+                <td><select name="moral"><option th:each="moral : ${morals}" th:value="${moral}" th:text="${moral.toString()}"></option> </select> </td>
+                <td> </td>
+                <td><button type="submit">Add account</button></td>
+            </form>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

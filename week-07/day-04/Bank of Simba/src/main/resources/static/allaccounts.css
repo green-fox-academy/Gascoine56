@@ -1,0 +1,23 @@
+body{
+    margin: 10% 20%;
+    background-color: aquamarine;
+}
+table{
+    width: 1000px;
+    height: 600px;
+    border-collapse: collapse;
+    background-color: aliceblue;
+    text-align: center;
+    font-family: "Bauhaus 93";
+}
+tr{
+    padding: 20px;
+    border-collapse: collapse;
+    border: solid gold;
+}
+h1{
+    margin-left: -20px;
+    text-align: center;
+    color: aliceblue;
+    font-family: "Bauhaus 93";
+}
