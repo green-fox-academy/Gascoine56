@@ -1,13 +1,16 @@
 body {
     margin: 20px 40% 20px 20px;
 }
-.topmenu{
+
+.topmenu {
     margin-bottom: 20px;
     height: 60px;
 }
-#myshop{
+
+#myshop {
     padding-right: 67%;
 }
+
 a {
     color: #2fe5e5;
     font-family: "Berlin Sans FB";
@@ -20,7 +23,6 @@ a {
     outline: none;
     background: none;
 }
-
 
 button.menu, .go {
     background-color: red;
@@ -40,15 +42,18 @@ button.menu:hover {
     background-color: #2fe5e5;
     color: black;
 }
-.go:hover{
+
+.go:hover {
     background-color: #2fe5e5;
     color: black;
 }
-p{
+
+p {
     font-size: 18px;
     font-weight: bold;
 }
-#searchbars{
+
+#searchbars {
     display: inline-block;
 }
 
@@ -77,4 +82,3 @@ tr {
 #description {
     font-weight: lighter;
 }
-

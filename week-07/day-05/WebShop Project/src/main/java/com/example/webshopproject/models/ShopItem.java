@@ -62,7 +62,7 @@ public class ShopItem {
         this.price /= 26;
     }
 
-    public void setpriceOriginal(){
+    public void setpriceOriginal() {
         this.price *= 26;
     }
 
