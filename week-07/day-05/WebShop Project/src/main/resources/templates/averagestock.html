@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+
+    <title>My Shop</title>
+</head>
+<body>
+<div class="topmenu">
+    <a id="myshop" th:href="@{/}">My Shop</a>
+    <a th:href="@{/more}">More>></a>
+</div>
+<div>
+    <table>
+        <tr>
+            <form th:action="@{/only-available}" method="get">
+                <button class="menu" type="submit">ONLY AVAILABLE</button>
+            </form>
+            <form th:action="@{/containsNike}" method="get">
+                <button class="menu" type="submit">CONTAINS NIKE</button>
+            </form>
+            <form th:action="@{/cheapestFirst}" method="get">
+                <button class="menu">CHEAPEST FIRST</button>
+            </form>
+            <form th:action="@{/averageStock}" method="get">
+                <button class="menu" type="submit">AVERAGE STOCK</button>
+            </form>
+            <form th:action="@{/mostExpensive}" method="get">
+                <button class="menu" type="submit">MOST EXPENSIVE AVAILABLE</button>
+            </form>
+        </tr>
+    </table>
+</div>
+<h1 id="average" th:text="'Average stock: ' + ${average}"></h1>
+</body>
+</html>

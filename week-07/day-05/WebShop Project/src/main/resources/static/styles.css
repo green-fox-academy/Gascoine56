@@ -1,0 +1,80 @@
+body {
+    margin: 20px 40% 20px 20px;
+}
+.topmenu{
+    margin-bottom: 20px;
+    height: 60px;
+}
+#myshop{
+    padding-right: 67%;
+}
+a {
+    color: #2fe5e5;
+    font-family: "Berlin Sans FB";
+    font-size: 40px;
+    padding: 5px;
+    height: 50px;
+    float: left;
+    border-bottom: solid 2px #2fe5e5;
+    border-collapse: collapse;
+    outline: none;
+    background: none;
+}
+
+
+button.menu, .go {
+    background-color: red;
+    border-radius: 10px;
+    color: aliceblue;
+    height: 30px;
+    margin-right: 20px;
+    border: none;
+}
+
+#average {
+    font-family: Serif, serif;
+    color: black;
+}
+
+button.menu:hover {
+    background-color: #2fe5e5;
+    color: black;
+}
+.go:hover{
+    background-color: #2fe5e5;
+    color: black;
+}
+p{
+    font-size: 18px;
+    font-weight: bold;
+}
+#searchbars{
+    display: inline-block;
+}
+
+table.contents {
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+th {
+    background-color: #2fe5e5;
+    font-weight: bolder;
+    font-size: 28px;
+    font-family: "Berlin Sans FB";
+}
+
+tr {
+    height: 50px;
+}
+
+#name, #price, #type {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#description {
+    font-weight: lighter;
+}
+
