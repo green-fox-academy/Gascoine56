@@ -76,7 +76,7 @@ public class ShopController {
 
     @GetMapping("/cosmetics")
     public String cosmetics(Model model) {
-        model.addAttribute("shopItems", shop.searchType("Delicacies"));
+        model.addAttribute("shopItems", shop.searchType("Cosmetics"));
         return "more";
     }
 

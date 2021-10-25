@@ -11,7 +11,7 @@ public class ShopServices {
     public ShopServices() {
         shopItemList.add(new ShopItem("Running shoes", "Nike running shoes for every day running", 1000, 5, "pcs", "Clothing"));
         shopItemList.add(new ShopItem("Flying carpet", "Can be used as a carpet or a vehicle.", 100000, 0, "pcs", "Magical artifacts"));
-        shopItemList.add(new ShopItem("Unicorn intestines", "Somebody will surely find a use for these some day.", 10, 6.8, "kgs", "Delicacies"));
+        shopItemList.add(new ShopItem("Unicorn intestines", "Somebody will surely find a use for these some day.", 10, 6.8, "kgs", "Cosmetics"));
         shopItemList.add(new ShopItem("Tears of a virgin", "Only 5 drops a day to keep you young and beautiful forever", 5860, 20, "liters", "Cosmetics"));
         shopItemList.add(new ShopItem("T-shirt Nike", "Extra sweaty", 300, 80, "pcs", "Clothing"));
     }
@@ -41,7 +41,7 @@ public class ShopServices {
     }
 
     public ShopItem mostExpensive() {
-        return shopItemList.stream().max(Comparator.comparingDouble(ShopItem::getPrice)).orElse(null);
+        return shopItemList.stream().filter(x -> x.getStock() >0 ).max(Comparator.comparingDouble(ShopItem::getPrice)).orElse(null);
     }
 
     public List<ShopItem> search(String text) {
