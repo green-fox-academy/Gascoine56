@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Best Pokemon App</title>
+</head>
+<body >
+<h1> Best Pokemon App </h1>
+<p th:if="${pokemonList.size()} == 0">You dont have any pokemon</p>
+<table th:unless="${pokemonList.size()} == 0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>HP</th>
+        <th>DEL</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pokemon : ${pokemonList}" th:object="${pokemon}">
+            <td th:text="${pokemon.id}">
+            </td>
+            <td th:text="${pokemon.name}">
+
+            </td>
+            <td th:text="${pokemon.type}">
+
+            </td>
+            <td th:text="${pokemon.hp}">
+
+            </td>
+            <td>
+            <form th:action="@{|/remove/${pokemon.id}|}" method="post">
+                <button type="submit">DEL</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/add-pokemon">Add New Pokemon</a>
+</body>
+</html>

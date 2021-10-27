@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/useful/colored">Color the Background</a>
+<br>
+<a href="/useful/email?email=is@this.valid">email</a>
+<br>
+<form action="#" th:action="@{/useful/encode}" method="post">
+    <input type="text" placeholder="input the text to be encoded" required th:name="text">
+    <input type="number" placeholder="encode amount" required th:name="number">
+    <button type="submit">Encode</button>
+</form>
+<form action="#" th:action="@{/useful/decode}" method="post">
+    <input type="text" placeholder="input the text to be encoded" required th:name="text">
+    <input type="number" placeholder="encode amount" required th:name="number">
+    <button type="submit">Decode</button>
+</form>
+</body>
+</html>
