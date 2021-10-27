@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Primary
 public class RedColor implements MyColor {
+    Printer printer;
+
     public RedColor(Printer printer) {
         this.printer = printer;
     }
-
-    Printer printer;
 
     @Override
     public void printColor() {

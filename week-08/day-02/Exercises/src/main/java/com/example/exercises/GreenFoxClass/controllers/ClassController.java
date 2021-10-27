@@ -1,5 +1,6 @@
 package com.example.exercises.GreenFoxClass.controllers;
 
+import com.example.exercises.GreenFoxClass.repositories.FoxInterface;
 import com.example.exercises.GreenFoxClass.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,23 +10,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
+
 @Controller
 public class ClassController {
-    StudentService service;
+    FoxInterface service;
 
     @Autowired
-    public ClassController(StudentService service) {
+    public ClassController(FoxInterface service) {
         this.service = service;
     }
 
     @GetMapping("/gfa")
-    public String index(Model model) {
+    public String index(Model model) throws IOException {
         model.addAttribute("count", service.count());
         return "/gfa/index";
     }
 
     @GetMapping("/gfa/list")
-    public String listAll(Model model) {
+    public String listAll(Model model) throws IOException {
         model.addAttribute("students", service.findAll());
         return "/gfa/list";
     }
@@ -36,7 +39,7 @@ public class ClassController {
     }
 
     @PostMapping("/gfa/save")
-    public String addStudent(@RequestParam String name) {
+    public String addStudent(@RequestParam String name) throws IOException {
         service.save(name);
         return "/gfa/studentadded";
     }
@@ -48,7 +51,7 @@ public class ClassController {
 
     @PostMapping("/gfa/ispresent")
     @ResponseBody
-    public String check(@RequestParam String name) {
+    public String check(@RequestParam String name) throws IOException {
         if (service.checkByName(name))
             return "The student is in the list";
         else
