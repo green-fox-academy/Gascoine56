@@ -1,4 +1,4 @@
-package com.greenfox.messageservice;
+package com.example.messageservices;
 
 import com.example.messageservices.models.MessageProceeder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MessageServicesApplication implements CommandLineRunner {
 
-    MessageProceeder messageProceeder;
+    private MessageProceeder messageProceeder;
 
+    @Autowired
     public MessageServicesApplication(MessageProceeder messageProceeder) {
         this.messageProceeder = messageProceeder;
     }

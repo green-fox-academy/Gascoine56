@@ -1,25 +1,25 @@
 package com.example.messageservices.models;
 
 import com.example.messageservices.configuration.MessageConfiguration;
+import com.example.messageservices.repositories.MessageService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class MessageProceeder{
+public class MessageProceeder {
 
-    MessageConfiguration config;
+    private final List<MessageService> messageServices;
 
-    public MessageProceeder(MessageConfiguration config){
-        this.config = config;
+    @Autowired
+    public MessageProceeder(List<MessageService> messageServices) {
+        this.messageServices = messageServices;
     }
 
-    public MessageConfiguration getConfig() {
-        return config;
-    }
-
-    public void setConfig(MessageConfiguration config) {
-        this.config = config;
-    }
-
-    public void processMessage(String s, String s1) {
+    public void processMessage(String x, String y) {
+        for (MessageService msg : messageServices) {
+            msg.sendMessage(x, y);
+        }
     }
 }
