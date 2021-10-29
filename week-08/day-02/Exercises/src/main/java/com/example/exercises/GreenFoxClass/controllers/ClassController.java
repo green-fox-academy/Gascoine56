@@ -1,7 +1,6 @@
 package com.example.exercises.GreenFoxClass.controllers;
 
 import com.example.exercises.GreenFoxClass.repositories.FoxInterface;
-import com.example.exercises.GreenFoxClass.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
