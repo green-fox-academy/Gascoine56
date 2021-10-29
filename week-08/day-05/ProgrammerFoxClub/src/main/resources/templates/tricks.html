@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Programmer Fox Club index </title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>
+    Lets learn new tricks!
+</h1>
+<ul>
+    <li>
+        <a th:href="@{/}">Information</a>
+    </li>
+    <li>
+        <a th:href="@{/login}">Login</a>
+    </li>
+    <li>
+        <a th:href="@{/nutritionStore}">Nutrition Store</a>
+    </li>
+</ul>
+<img th:src="@{/greenfox.png}">
+<div th:if="${fox == false}">
+<form  th:action="@{/tricks}" th:method="post" th:name="trick">
+    <label th:id="select">Choose a trick to learn:
+        <select th:id="select" th:name="trick">
+            <option th:each="trick : ${tricks}" th:text="${trick}"></option>
+        </select>
+        <button type="submit">Learn!</button>
+    </label>
+</form>
+</div>
+<div th:if="${fox == true}">
+    <h1> The fox knows all the tricks!</h1>
+</div>
+</body>
