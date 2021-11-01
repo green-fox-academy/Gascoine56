@@ -6,6 +6,8 @@ import com.example.programmerfoxclub.repositories.TRICKS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -63,4 +65,24 @@ public class FoxServices {
     public List<String> unlearntTricksFilter(Fox fox) {
         return tricksToList().stream().filter(x -> !fox.getTricks().contains(x)).collect(Collectors.toList());
     }
+    public String getDateTime(){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime current = LocalDateTime.now();
+        return dtf.format(current);
+    }
+    public void addAction(String action){
+        foxLair.addAction(action);
+    }
+    public List<String> getRecentActions(){
+        if (getFoxLair().getActions().size() > 5){
+            List<String> recent = new ArrayList<>();
+            for (int i = getFoxLair().getActions().size()-5; i < getFoxLair().getActions().size(); i++) {
+                recent.add(getFoxLair().getActions().get(i));
+            }
+            return recent;
+        }
+        else
+            return getFoxLair().getActions();
+    }
+
 }

@@ -1,4 +1,4 @@
 package com.example.programmerfoxclub.repositories;
 
-public enum TRICKS {Bow, Fetch, Kiss, Shit, Jump
+public enum TRICKS {bow, fetch, kiss, shit, jump
 }

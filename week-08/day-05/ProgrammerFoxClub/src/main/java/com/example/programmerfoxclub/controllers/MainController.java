@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+
 @Controller
 public class MainController {
 
@@ -24,8 +26,9 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(@RequestParam(required = false) String name, Model model) {
         model.addAttribute("fox", currentFox);
+        model.addAttribute("actions", foxLair.getRecentActions());
         return "index";
     }
 
@@ -37,11 +40,13 @@ public class MainController {
     @PostMapping("/login")
     public String loginSubmit(@RequestParam String name) {
         currentFox = foxLair.findFoxByName(name);
-        return "redirect:/";
+        String action = foxLair.getDateTime() + ": Logged in as " + name;
+        foxLair.addAction(action);
+        return "redirect:/?name=" + currentFox.getName();
     }
 
     @GetMapping("/nutritionStore")
-    public String nutritionStore(Model model) {
+    public String nutritionStore(@RequestParam(required = false) String name, Model model) {
         model.addAttribute("food", FOOD.values());
         model.addAttribute("drink", DRINKS.values());
         model.addAttribute("fox", currentFox);
@@ -50,13 +55,23 @@ public class MainController {
 
     @PostMapping("/nutritionStore")
     public String nutritionStore(@RequestParam FOOD food, @RequestParam DRINKS drink) {
+        String tempFood = currentFox.getFood().toString();
+        String tempDrink = currentFox.getDrink().toString();
         currentFox.setFood(food);
         currentFox.setDrink(drink);
-        return "redirect:/";
+        if (!tempFood.equals(food.toString())) {
+            String action = foxLair.getDateTime() + ": Food for fox " + currentFox.getName() + " changed from " + tempFood + " to " + currentFox.getFood();
+            foxLair.addAction(action);
+        }
+        if (!tempDrink.equals(drink.toString())) {
+            String action = foxLair.getDateTime() + ": Drink for fox " + currentFox.getName() + " changed from " + tempDrink + " to " + currentFox.getDrink();
+            foxLair.addAction(action);
+        }
+        return "redirect:/?name=" + currentFox.getName();
     }
 
     @GetMapping("/tricks")
-    public String tricksCentre(Model model) {
+    public String tricksCentre(@RequestParam(required = false) String name, Model model) {
         model.addAttribute("tricks", foxLair.unlearntTricksFilter(currentFox));
         model.addAttribute("fox", foxLair.allTricksLearnt(currentFox));
         return "tricks";
@@ -65,6 +80,14 @@ public class MainController {
     @PostMapping("/tricks")
     public String tricksCentre(@RequestParam String trick) {
         currentFox.getTricks().add(trick);
-        return "redirect:/";
+        String action = foxLair.getDateTime() + ": Fox named " + currentFox.getName() + " learned to " + trick + " !";
+        foxLair.addAction(action);
+        return "redirect:/?name=" + currentFox.getName();
+    }
+
+    @GetMapping("/actions")
+    public String actionHistory(Model model) {
+        model.addAttribute("actions", foxLair.getFoxLair().getActions());
+        return "actionHistory";
     }
 }

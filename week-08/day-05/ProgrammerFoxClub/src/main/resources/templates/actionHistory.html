@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Programmer Fox Club index </title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>
+    Lets learn new tricks!
+</h1>
+<ul>
+    <li>
+        <a th:href="@{/}">Information</a>
+    </li>
+    <li>
+        <a th:href="@{/login}">Login</a>
+    </li>
+    <li>
+        <a th:href="@{/nutritionStore}">Nutrition Store</a>
+    </li>
+    <li>
+        <a th:href="@{/tricks}">Learn tricks</a>
+    </li>
+    <h1>Action history:</h1>
+    <ul>
+        <li th:each="action : ${actions}" th:text="${action}">
+        </li>
+    </ul>
+    <h2 th:if="${actions.isEmpty()}">There are no actions yet!</h2>
+</ul>
