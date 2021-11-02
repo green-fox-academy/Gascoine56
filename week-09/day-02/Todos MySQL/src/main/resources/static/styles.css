@@ -1,0 +1,29 @@
+body{
+    background-color: silver;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:100vh;
+}
+
+table{
+    margin: 100px;
+    border-collapse: collapse;
+    border: solid black;
+    padding: 20px;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+th,td{
+    border-collapse: collapse;
+    border: solid white ;
+}
+a{
+    margin: 100px;
+}
+form{
+    width: 200px;
+    margin-left: 500px;
+}

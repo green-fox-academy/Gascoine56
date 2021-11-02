@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add new todo</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>Add new todo</h1>
+<form th:action="@{/todo/add}" th:method="post">
+    <input type="text" placeholder="Input your task" required th:name="title">
+    <button type="submit">Add task</button>
+</form>
+</body>

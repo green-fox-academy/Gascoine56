@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<form th:action="@{'/todo/' + ${todo.getId()} + '/edit'}" th:method="post">
+    <label>Todo name:
+        <input th:type="text" placeholder="Task name" th:name="title" th:value="${todo.getTitle()}">
+    </label>
+    <label>Urgent:
+        <input type="checkbox" th:name="urgent" th:checked="${todo.isUrgent()}">
+    </label>
+    <label>Done:
+        <input type="checkbox" th:name="done" th:checked="${todo.isDone()}">
+    </label>
+    <button type="submit">Save</button>
+    <a th:href="@{/todo/list}">Back</a>
+</form>
+</body>
+</html>
