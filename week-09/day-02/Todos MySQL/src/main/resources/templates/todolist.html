@@ -4,27 +4,46 @@
     <title>To-Do List</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
+<a th:class="links" th:href="@{/as/}" th:method="get">To assignees</a>
+<a th:class="links" th:href="@{/todo/add}" th:method="get">Add new task</a>
+<form th:action="@{/todo/search}" th:method="post">
+    <input type="text" name="query" required placeholder="Search in task name, description, assignee name...">
+    <button type="submit">Go</button>
+</form>
+<form th:action="@{/todo/searchByDate}" th:method="post">
+    <label>Search by creation date, or deadline:
+        <input type="date" name="query" required th:value="${#dates.createNow()}">
+    </label>
+    <button type="submit">Go</button>
+</form>
 <h1> Todos for today:</h1>
-<a th:href="@{/todo/add}" th:method="get">Add new task</a>
 <table>
     <thead>
     <tr>
-        <th>Id:</th>
         <th>Title:</th>
+        <th>Description:</th>
         <th>Urgent?</th>
         <th>Done?</th>
+        <th>Created when:</th>
+        <th>Deadline:</th>
+        <th>Assignee:</th>
         <th></th>
         <th></th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="todo : ${todoList}">
-        <td th:text="${todo.getId()}"></td>
         <td th:text="${todo.getTitle()}"></td>
+        <td th:text="${todo.getDescription()}"></td>
         <td th:text="${todo.isUrgent()}"></td>
         <td th:text="${todo.isDone()}"></td>
+        <td th:text="${todo.getCreationDate()}"></td>
+        <td th:text="${todo.getDueDate()}"></td>
+        <td><a th:href="@{'/todo/assignee/' + ${todo.getAssignee().getId()}}"
+               th:text="${todo.getAssignee().getName()}"></a></td>
         <td><a th:href="@{'/todo/' + ${todo.getId()} + '/delete'}" th:method="post">Delete</a></td>
         <td><a th:href="@{'/todo/' + ${todo.getId()} + '/edit'}">Edit</a></td>
     </tr>

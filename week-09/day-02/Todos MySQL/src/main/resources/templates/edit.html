@@ -6,9 +6,22 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<form th:action="@{'/todo/' + ${todo.getId()} + '/edit'}" th:method="post">
+<form th:action="@{/todo/edit}" th:method="post">
     <label>Todo name:
-        <input th:type="text" placeholder="Task name" th:name="title" th:value="${todo.getTitle()}">
+        <input th:type="text" th:name="title" th:value="${todo.getTitle()}">
+    </label>
+    <label for="desc">
+        <input id="desc" th:type="text" th:name="description" th:value="${todo.getDescription()}">
+    </label>
+    <label for="DD">Due date:
+        <input type="date" id="DD" th:value="${todo.getDueDate()}">
+    </label>
+    <input type="hidden" th:value="${todo.getId()}" th:name="id">
+    <label>Select assignee:
+        <select th:name="wow">
+            <option th:each="i : ${people}" th:text="${i.getName()}" th:value="${i.getId()}"
+                    th:selected="${todo.getAssignee().getId() == i.getId()}"></option>
+        </select>
     </label>
     <label>Urgent:
         <input type="checkbox" th:name="urgent" th:checked="${todo.isUrgent()}">

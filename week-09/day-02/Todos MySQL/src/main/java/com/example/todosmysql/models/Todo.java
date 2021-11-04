@@ -1,9 +1,7 @@
 package com.example.todosmysql.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Todo {
@@ -14,10 +12,57 @@ public class Todo {
     private String title;
     private boolean urgent = false;
     private boolean done = false;
+    private String description;
+    @Temporal(value = TemporalType.DATE)
+    private Date creationDate = new Date();
+    private String dueDate;
 
-    public Todo(String title, boolean done) {
+    @ManyToOne
+    private Assignee assignee;
+
+    public Todo(String title, boolean urgent, Assignee assignee, String description, String dueDate) {
         this.title = title;
-        this.done = done;
+        this.urgent = urgent;
+        this.assignee = assignee;
+        this.description = description;
+        this.dueDate = dueDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public Todo(String title, Assignee assignee) {
+        this.title = title;
+        this.assignee = assignee;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 
     public Todo(String title) {

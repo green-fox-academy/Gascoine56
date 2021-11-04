@@ -4,11 +4,24 @@
     <title>Add new todo</title>
     <link rel="stylesheet" th:href="@{/styles.css}"/>
     <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
 <h1>Add new todo</h1>
-<form th:action="@{/todo/add}" th:method="post">
-    <input type="text" placeholder="Input your task" required th:name="title">
+<form th:class="add" th:action="@{/todo/add}" th:method="post">
+    <input type="text" placeholder="Name your task here..." required th:name="title">
+    <input type="text" placeholder="Describe your task here..." th:name="description">
+    <label>Select a deadline:
+        <input type="date" th:name="dueDate" required>
+    </label>
+    <label th:for="assignee">Choose assignee:
+        <select th:id="assignee" th:name="assignee">
+            <option th:each="i : ${people}" th:text="${i.getName()}" th:value="${i.getId()}"></option>
+        </select>
+    </label>
     <button type="submit">Add task</button>
+</form>
+<form>
+<a th:href="@{/todo/list}">Back</a>
 </form>
 </body>

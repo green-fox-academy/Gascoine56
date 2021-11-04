@@ -1,7 +1,8 @@
 package com.example.todosmysql.controllers;
 
 import com.example.todosmysql.models.Todo;
-import com.example.todosmysql.repositories.TodoRepository;
+import com.example.todosmysql.services.AssigneeService;
+import com.example.todosmysql.services.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,50 +12,69 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 public class TodoController {
 
-    public TodoRepository repository;
+    private TodoService toDoService;
+    private AssigneeService assigneeService;
 
     @Autowired
-    public TodoController(TodoRepository repository) {
-        this.repository = repository;
+    public TodoController(TodoService toDoService, AssigneeService assigneeService) {
+        this.toDoService = toDoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping({"/", "/list"})
     public String list(Model model, @RequestParam(required = false) String isActive) {
-        if (isActive == null) model.addAttribute("todoList", repository.findAll());
-        else if (isActive.equals("true"))
-            model.addAttribute("todoList", repository.findAllByDone(true));
-        else if (isActive.equals("false"))
-            model.addAttribute("todoList", repository.findAllByDone(false));
-        else model.addAttribute("todoList", repository.findAll());
+        model.addAttribute("todoList", toDoService.getAll());
         return "todolist";
     }
 
     @GetMapping("/add")
-    public String addForm() {
+    public String addForm(Model model) {
+        model.addAttribute("people", assigneeService.getAll());
         return "add";
     }
 
     @PostMapping("/add")
-    public String addSubmit(@RequestParam String title) {
-        repository.save(new Todo(title));
+    public String addSubmit(@ModelAttribute Todo todo) {
+        toDoService.addTodo(todo);
+        todo.getAssignee().addTodo(todo);
         return "redirect:/todo/list";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteById(@PathVariable("id") Long id) {
-        repository.deleteById(id);
+        toDoService.deleteById(id);
         return "redirect:/todo/list";
     }
 
     @GetMapping("/{id}/edit")
     public String editForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("todo", repository.findById(id).get());
+        model.addAttribute("todo", toDoService.findById(id));
+        model.addAttribute("people", assigneeService.getAll());
         return "edit";
     }
 
-    @PostMapping("/{id}/edit")
-    public String editSubmit(@ModelAttribute Todo todo) {
-        repository.save(todo);
+    @PostMapping("/edit")
+    public String editSubmit(@ModelAttribute Todo todo, @RequestParam Long wow) {
+        todo.setAssignee(assigneeService.getById(wow));
+        toDoService.addTodo(todo);
         return "redirect:/todo/list";
+    }
+
+    @PostMapping("/search")
+    public String searchBar(@RequestParam String query, Model model) {
+        model.addAttribute("todoList", toDoService.findByQuery(query));
+        return "todolist";
+    }
+
+    @PostMapping("/searchByDate")
+    public String searchBarDate(@RequestParam String query, Model model) {
+        model.addAttribute("todoList", toDoService.findByDate(query));
+        return "todolist";
+    }
+
+    @GetMapping("/assignee/{id}")
+    public String assigneeDetails(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("ass", assigneeService.getById(id));
+        return "assigneedetail";
     }
 }

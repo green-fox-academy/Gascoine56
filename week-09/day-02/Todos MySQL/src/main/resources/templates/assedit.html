@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modify assignee</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+<h1>Type a new name for the assignee, or leave the original.</h1>
+<form th:action="@{@{/as/edit}}" th:method="post">
+    <input type="hidden" th:value="${ass.getId()}" th:name="id">
+    <input type="hidden" th:value="${ass.getEmail()}" th:name="email">
+    <input type="text" th:value="${ass.getName()}" th:name="name">
+    <button type="submit">Confirm</button>
+</form>
+<a th:href="@{/todo/list}">Back</a>
+</form>
+</body>
+</html>

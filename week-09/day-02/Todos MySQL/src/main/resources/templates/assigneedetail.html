@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1 th:text="${ass.getName()}"></h1>
+<ul th:each=" i : ${ass.getTodos()}">
+    <li th:text="'Task ' + ${i.getTitle()} + ', ' + ${i.isUrgent()} + ', ' + ${i.isDone()} + ' deadline: ' + ${i.getDueDate()}"></li>
+</ul>
+<a th:href="@{/todo/list}">Back</a>
+</body>
+</html>

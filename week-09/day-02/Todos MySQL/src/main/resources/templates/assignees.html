@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id:</th>
+        <th>Name:</th>
+        <th>Email:</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="person : ${list}">
+        <td th:text="${person.getId()}"></td>
+        <td><a th:href="@{'/todo/assignee/' + ${person.getId()}}" th:text="${person.getName()}"></a></td>
+        <td th:text="${person.getEmail()}"></td>
+        <td><a th:href="@{'/as/edit/' +  ${person.getId()}}">Change name</a></td>
+        <td><a th:href="@{'/as/remove/' +  ${person.getId()}}">Remove</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Create new assignee:</h2>
+
+<form th:action="@{/as/create}" th:method="post">
+    <label th:for="name">Name:
+        <input type="text" th:id="name" th:name="name" required placeholder="Name">
+    </label>
+    <label th:for="em">Email:
+        <input type="email" th:id="em" th:name="email" required placeholder="x@x.x">
+    </label>
+    <button type="submit">Create</button>
+</form>
+<form>
+    <a th:href="@{/todo/list}">Back</a>
+</form>
+</body>
+</html>

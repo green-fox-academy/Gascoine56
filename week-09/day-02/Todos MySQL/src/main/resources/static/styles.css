@@ -1,29 +1,41 @@
-body{
+body {
     background-color: silver;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    min-height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-table{
+table {
     margin: 100px;
     border-collapse: collapse;
     border: solid black;
     padding: 20px;
     text-align: center;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-th,td{
+
+th, td {
     border-collapse: collapse;
-    border: solid white ;
+    border: solid white;
 }
-a{
-    margin: 100px;
+
+a.links {
+    margin-left: 200px;
+    padding-bottom: 20px;
+    font-size: large;
 }
-form{
+
+form {
     width: 200px;
-    margin-left: 500px;
+    margin-left: 200px;
+}
+.add{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
 }
