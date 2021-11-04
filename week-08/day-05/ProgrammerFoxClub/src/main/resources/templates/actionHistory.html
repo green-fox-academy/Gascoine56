@@ -11,20 +11,17 @@
 </h1>
 <ul>
     <li>
-        <a th:href="@{/}">Information</a>
+        <a th:href="@{'/login/' + ${fox.getName()}}">Login</a>
     </li>
     <li>
-        <a th:href="@{/login}">Login</a>
-    </li>
-    <li>
-        <a th:href="@{/nutritionStore}">Nutrition Store</a>
+        <a th:href="@{'/nutritionStore/' + ${fox.getName()}}">Nutrition Store</a>
     </li>
     <li>
         <a th:href="@{/tricks}">Learn tricks</a>
     </li>
     <h1>Action history:</h1>
     <ul>
-        <li th:each="action : ${actions}" th:text="${action}">
+        <li th:each="action : ${actions}" th:text="${action.getDate()} + ' : ' + ${action.getAction()}">
         </li>
     </ul>
     <h2 th:if="${actions.isEmpty()}">There are no actions yet!</h2>

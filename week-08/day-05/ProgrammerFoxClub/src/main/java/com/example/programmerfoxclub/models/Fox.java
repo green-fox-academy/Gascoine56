@@ -1,20 +1,67 @@
 package com.example.programmerfoxclub.models;
 
-import com.example.programmerfoxclub.repositories.DRINKS;
-import com.example.programmerfoxclub.repositories.FOOD;
+import com.example.programmerfoxclub.enums.DRINKS;
+import com.example.programmerfoxclub.enums.FOOD;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Fox {
 
-    String name;
-    List<String> tricks = new ArrayList<>();
-    FOOD food = FOOD.PhoBo;
-    DRINKS drink = DRINKS.Beer;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    @Enumerated
+    private FOOD food = FOOD.PhoBo;
+    @Enumerated
+    private DRINKS drink = DRINKS.Beer;
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name = "fox_tricks", joinColumns = @JoinColumn(name = "fox_id"), inverseJoinColumns = @JoinColumn(name = "trick_id"))
+    private List<Trick> tricks = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Action> actions = new ArrayList<>();
+
+    public Fox(String name, FOOD food, DRINKS drink) {
+        this.name = name;
+        this.food = food;
+        this.drink = drink;
+    }
+
+    public Fox() {
+    }
+
+    public List<Action> getActions() {
+        return actions;
+    }
+
+    public void setActions(List<Action> actions) {
+        this.actions = actions;
+    }
+
+    public List<Trick> getTricks() {
+        return tricks;
+    }
+
+    public void setTricks(List<Trick> tricks) {
+        this.tricks = tricks;
+    }
 
     public Fox(String name) {
         this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -25,13 +72,6 @@ public class Fox {
         this.name = name;
     }
 
-    public List<String> getTricks() {
-        return tricks;
-    }
-
-    public void setTricks(List<String> tricks) {
-        this.tricks = tricks;
-    }
 
     public FOOD getFood() {
         return food;

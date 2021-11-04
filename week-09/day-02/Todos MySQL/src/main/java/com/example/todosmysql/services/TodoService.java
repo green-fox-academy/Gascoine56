@@ -46,6 +46,6 @@ public class TodoService {
     }
 
     public List<Todo> findByDate(String query) {
-        return todorepository.findAll().stream().filter(x -> x.getDueDate().contains(query) || x.getCreationDate().toString().contains(query)).collect(Collectors.toList());
+        return todorepository.findAll().stream().filter(x -> x.getDueDate().equals(query) || x.getCreationDate().toString().equals(query)).collect(Collectors.toList());
     }
 }

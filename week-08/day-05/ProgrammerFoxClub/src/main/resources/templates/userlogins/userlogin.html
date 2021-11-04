@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Programmer Fox Club user login</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>
+    Log in!
+</h1>
+<form th:action="@{/login}" method="post">
+    <label>Name:
+        <input type="text" placeholder="type a username" th:name="username" required>
+    </label>
+    <label>Enter a password:
+        <input type="password" placeholder="type a password" th:name="password" required>
+    </label>
+
+    <button type="submit">Log in</button>
+</form>
+
+
+<a th:href="@{/registration}">Register?</a>
+
+
+</body>

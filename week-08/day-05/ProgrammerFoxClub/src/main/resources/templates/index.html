@@ -11,31 +11,27 @@
 </h1>
 <ul>
     <li>
-        <a th:href="@{/login}">Login</a>
+        <a th:href="@{'/nutritionStore/' + ${fox.getName()}}">Nutrition Store</a>
     </li>
     <li>
-        <a th:href="@{/nutritionStore}">Nutrition Store</a>
+        <a th:href="@{'/tricks/' + ${fox.getName()}}">Learn tricks</a>
     </li>
     <li>
-        <a th:href="@{/tricks}">Learn tricks</a>
-    </li>
-    <li>
-        <a th:href="@{/actions}">Action History</a>
+        <a th:href="@{'/actions/' + ${fox.getName()}}">Action History</a>
     </li>
 </ul>
 <img th:src="@{/greenfox.png}">
 <p th:text="'This is ' + ${fox.getName()} + '. Currently living on ' + ${fox.getFood()} + ' and ' + ${fox.getDrink()} + '. He knows ' + ${fox.getTricks().size()} + ' tricks.'"></p>
-
 <h1>
     Known tricks
 </h1>
 <p th:if="${fox.getTricks().isEmpty()}">You do not know any tricks at the moment</p>
 <ul>
-    <li th:each=" trick : ${fox.getTricks()}" th:text="${trick}"></li>
+    <li th:each=" trick : ${fox.getTricks()}" th:text="${trick.getName()}"></li>
 </ul>
 <h1>Recent actions:</h1>
-<ul>
+<!--<ul>
     <li th:each="action : ${actions}" th:text="${action}"></li>
-</ul>
+</ul>-->
 </body>
 </html>

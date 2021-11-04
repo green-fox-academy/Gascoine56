@@ -11,20 +11,14 @@
 </h1>
 <ul>
     <li>
-        <a th:href="@{/login}">Login</a>
+        <a th:href="@{'/tricks/' + ${fox.getName()}}">Learn tricks</a>
     </li>
     <li>
-        <a th:href="@{/nutritionStore}">Nutrition Store</a>
-    </li>
-    <li>
-        <a th:href="@{/tricks}">Learn tricks</a>
-    </li>
-    <li>
-        <a th:href="@{/actions}">Action History</a>
+        <a th:href="@{'/actions/' + ${fox.getName()}}">Action History</a>
     </li>
 </ul>
-
-<form th:action="@{/nutritionStore}" method="post">
+<img th:src="@{/greenfox.png}">
+<form th:action="@{'/nutritionStore/' + ${fox.getName()}} " method="post">
     <label for="food"> Choose the desired food:
         <select th:name="food" id="food">
             <option th:selected="${fox.getFood()}" th:text="${fox.getFood()}"></option>
@@ -34,7 +28,7 @@
     <label for="drinks"> Choose the desired drink:
         <select th:name="drink" id="drinks">
             <option th:selected="${fox.getDrink()}" th:text="${fox.getDrink()}"></option>
-            <option th:unless="${fox.getDrink() == drink}" th:each="drink : ${drink}" th:text="${drink}"></option>
+            <option th:unless="${fox.getDrink() == drink}" th:each="drink : ${drinks}" th:text="${drink}"></option>
         </select>
     </label>
     <button type="submit">Assign</button>
