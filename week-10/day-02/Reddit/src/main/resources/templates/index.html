@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reddit clone index</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<a th:class="hyperlink" th:href="@{/addPost}">Submit new post</a>
+<h1>Trending posts</h1>
+<table>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.getVotes()}"></td>
+        <td><a th:style="'text-decoration:none'" th:href="@{'/upvote/' + ${post.getId()}}">+</a></td>
+        <td><a th:style="'text-decoration:none'" th:href="@{'/downvote/' + ${post.getId()}}">-</a></td>
+        <td th:text="${post.getText()}"></td>
+        <td th:text="${post.getDate()}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:unless="${page - 1 <= 0}" th:href="@{/previous}">Previous>></a>
+<a th:unless="${posts.size() < 10}" th:href="@{/next}">Next>></a>
+</body>
+</html>

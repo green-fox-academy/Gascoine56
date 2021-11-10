@@ -1,0 +1,21 @@
+body{
+    margin-left: 150px;
+    margin-top: 100px;
+    margin-right: 150px;
+    text-align: center;
+}
+td {
+    padding: 5px 20px;
+    font-size: large;
+
+}
+label{
+    display: block;
+    padding: 5px;
+
+}
+.hyperlink{
+    float: left;
+    text-align: left;
+    font-size: large;
+}

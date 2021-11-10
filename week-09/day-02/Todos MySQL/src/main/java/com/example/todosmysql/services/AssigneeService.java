@@ -1,7 +1,6 @@
 package com.example.todosmysql.services;
 
 import com.example.todosmysql.models.Assignee;
-import com.example.todosmysql.models.Todo;
 import com.example.todosmysql.repositories.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import java.util.List;
 @Service
 public class AssigneeService {
 
-    AssigneeRepository assigneeRepository;
+    private AssigneeRepository assigneeRepository;
 
     public AssigneeService() {
     }

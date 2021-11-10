@@ -15,7 +15,7 @@ import java.util.Date;
 @RestController
 public class PageController {
 
-    LogRepository logRepository;
+    private final LogRepository logRepository;
 
     @Autowired
     public PageController(LogRepository logRepository) {

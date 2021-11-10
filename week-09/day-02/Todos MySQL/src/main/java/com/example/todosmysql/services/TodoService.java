@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class TodoService {
 
-    TodoRepository todorepository;
+    private final TodoRepository todorepository;
 
     @Autowired
     public TodoService(TodoRepository todorepository) {

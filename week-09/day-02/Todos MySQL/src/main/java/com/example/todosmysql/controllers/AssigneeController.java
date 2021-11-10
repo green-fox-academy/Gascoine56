@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/as")
 public class AssigneeController {
 
-    AssigneeService assigneeService;
+    private final AssigneeService assigneeService;
 
     public AssigneeController(AssigneeService assigneeService) {
         this.assigneeService = assigneeService;
@@ -29,7 +29,7 @@ public class AssigneeController {
     }
 
     @PostMapping("/edit")
-    public String saveEditedAssignee(@ModelAttribute Assignee ass) {
+    public String saveEditedAssignee(Assignee ass) {
         assigneeService.addAssignee(ass);
         return "redirect:/as/";
     }

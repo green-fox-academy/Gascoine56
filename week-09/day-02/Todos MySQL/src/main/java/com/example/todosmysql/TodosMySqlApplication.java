@@ -1,8 +1,5 @@
 package com.example.todosmysql;
 
-import com.example.todosmysql.repositories.AssigneeRepository;
-import com.example.todosmysql.repositories.TodoRepository;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

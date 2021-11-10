@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reddit clone index</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+<h1>Log in, please:</h1>
+<form th:action="@{/index}" method="post">
+    <label>User name:
+        <input type="text" name="name" required>
+    </label>
+    <label>Password:
+        <input type="password" name="password" required>
+    </label>
+    <button type="submit">Log in</button>
+</form>
+<a th:href="@{/register}">Create a new account</a>
+
+</body>
+</html>
