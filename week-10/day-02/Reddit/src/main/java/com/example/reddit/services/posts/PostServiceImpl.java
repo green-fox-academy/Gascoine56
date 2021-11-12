@@ -1,7 +1,8 @@
-package com.example.reddit.services;
+package com.example.reddit.services.posts;
 
 import com.example.reddit.models.Post;
 import com.example.reddit.repositories.PostRepository;
+import com.example.reddit.services.posts.PostService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,28 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
+    public Post getById(Long postId) {
+        return postRepository.getById(postId);
+    }
+
+    @Override
     public List<Post> sortedList() {
+        //generates sorted list of posts
         return postRepository.findAll().stream().sorted(Comparator.comparing(Post::getVotes).reversed()).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Post> getSortedPage() {
+        //check if first page list is smaller than 10 to prevent out of bound index
+        if (sortedList().size() <10){
+            return sortedList();
+        }
+        // regular page list
+        else if (page * 10 < sortedList().size())
+            return sortedList().subList((page - 1) * 10, page * 10);
+        //fix last page out of bound
+        else
+            return sortedList().subList((page - 1) * 10, sortedList().size());
     }
 
     @Override
@@ -52,13 +73,7 @@ public class PostServiceImpl implements PostService {
         postRepository.save(post);
     }
 
-    @Override
-    public List<Post> getSortedPage() {
-        if (page * 10 <= sortedList().size())
-            return sortedList().subList((page - 1) * 10, page * 10);
-        else
-            return sortedList().subList((page - 2) * 10, sortedList().size());
-    }
+
 
     @Override
     public void nextPage() {
