@@ -2,11 +2,11 @@ package com.example.reddit.services.posts;
 
 import com.example.reddit.models.Post;
 import com.example.reddit.repositories.PostRepository;
-import com.example.reddit.services.posts.PostService;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,13 +43,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> getSortedPage() {
         //check if first page list is smaller than 10 to prevent out of bound index
-        if (sortedList().size() <10){
+        if (sortedList().size() < 10) {
             return sortedList();
         }
         // regular page list
         else if (page * 10 < sortedList().size())
             return sortedList().subList((page - 1) * 10, page * 10);
-        //fix last page out of bound
+            //fix last page out of bound
         else
             return sortedList().subList((page - 1) * 10, sortedList().size());
     }
@@ -72,8 +72,6 @@ public class PostServiceImpl implements PostService {
         post.downvote();
         postRepository.save(post);
     }
-
-
 
     @Override
     public void nextPage() {

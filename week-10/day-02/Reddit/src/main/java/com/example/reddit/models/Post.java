@@ -5,15 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-public class Post{
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,11 +33,11 @@ public class Post{
         this.user = user;
     }
 
-    public void upvote(){
+    public void upvote() {
         this.votes += 1;
     }
 
-    public void downvote(){
+    public void downvote() {
         this.votes += -1;
     }
 

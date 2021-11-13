@@ -1,6 +1,5 @@
 package com.example.reddit.services;
 
-import com.example.reddit.models.User;
 import com.example.reddit.models.Vote;
 import com.example.reddit.repositories.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
-public class VoteServiceImpl implements VoteService{
+public class VoteServiceImpl implements VoteService {
     VoteRepository voteRepository;
 
     @Autowired
@@ -20,7 +20,7 @@ public class VoteServiceImpl implements VoteService{
 
     @Override
     public boolean checkVoteByUserId(Long id) {
-        return voteRepository.findAll().stream().anyMatch(x-> Objects.equals(x.getUser().getId(), id));
+        return voteRepository.findAll().stream().anyMatch(x -> Objects.equals(x.getUser().getId(), id));
     }
 
     @Override
@@ -34,21 +34,39 @@ public class VoteServiceImpl implements VoteService{
     }
 
     @Override
-    public Vote findVoteByUserIdAndPostId(Long userId, Long postId) {
-        return voteRepository.findByUser_IdAndPost_Id(userId, postId);
+    public int findVoteByUserIdAndPostId(Long userId, Long postId) {
+        Optional<Vote> vote = voteRepository.findByUser_IdAndPost_Id(userId, postId);
+        if (vote.isPresent()) {
+            return vote.get().getVoteValue();
+        } else return 0;
     }
 
-    public void addVote(Vote vote){
+    @Override
+    public Vote getActualVoteByUserIdAndPostId(Long userId, Long postId) {
+        Optional<Vote> vote = voteRepository.findByUser_IdAndPost_Id(userId, postId);
+        if (vote.isPresent())
+            return vote.get();
+        else return null;
+    }
+
+    public void addVote(Vote vote) {
         voteRepository.save(vote);
     }
 
-    public List<Vote> getAllByUser_Id(Long userId){
+    public List<Vote> getAllByUser_Id(Long userId) {
         return voteRepository.findAllByUser_Id(userId);
     }
 
     @Override
-    public Vote findByPostId(Long postId, List<Vote> list) {
-        return list.stream().filter(x -> x.getPost().getId() == postId).findFirst().get();
+    public Vote findByPostId(Long postId) {
+        return voteRepository.findAll().stream().filter(x -> Objects.equals(x.getPost().getId(), postId)).findFirst().get();
+    }
+
+    @Override
+    public Integer sumVotesbyPostId(Long id) {
+        if (voteRepository.sumVotesByPost(id) == null)
+            return 0;
+        return voteRepository.sumVotesByPost(id);
     }
 
 }

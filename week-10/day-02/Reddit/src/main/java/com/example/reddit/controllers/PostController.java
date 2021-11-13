@@ -52,31 +52,27 @@ public class PostController {
     }
 
     @GetMapping("/upvote/{userId}/{id}")
-    public String upvote(@PathVariable Long id, @PathVariable Long userId) {
-        if (voteService.findVoteByUserIdAndPostId(userId, id) == null) {
+    public String upvote(@PathVariable Long userId, @PathVariable Long id) {
+        if (voteService.findVoteByUserIdAndPostId(userId, id) == 0) {
             Vote vote = new Vote(1, userService.getById(userId), postService.getById(id));
             voteService.addVote(vote);
-            postService.upvote(id);
-        } else if (voteService.findVoteByUserIdAndPostId(userId, id) != null && voteService.findVoteByUserIdAndPostId(userId, id).getVoteValue() != 1) {
-            Vote vote = (voteService.findVoteByUserIdAndPostId(userId, id));
+        } else{
+            Vote vote = (voteService.getActualVoteByUserIdAndPostId(userId, id));
             vote.setVoteValue(1);
             voteService.addVote(vote);
-            postService.upvote(id);
         }
         return "redirect:/index/" + userId;
     }
 
     @GetMapping("/downvote/{userId}/{id}")
-    public String downvote(@PathVariable Long id, @PathVariable Long userId) {
-        if (voteService.findVoteByUserIdAndPostId(userId, id) == null) {
+    public String downvote(@PathVariable Long userId, @PathVariable Long id) {
+        if (voteService.findVoteByUserIdAndPostId(userId, id) == 0) {
             Vote vote = new Vote(-1, userService.getById(userId), postService.getById(id));
             voteService.addVote(vote);
-            postService.downvote(id);
-        } else if (voteService.findVoteByUserIdAndPostId(userId, id) != null && voteService.findVoteByUserIdAndPostId(userId, id).getVoteValue() != -1) {
-            Vote vote = (voteService.findVoteByUserIdAndPostId(userId, id));
+        } else{
+            Vote vote = (voteService.getActualVoteByUserIdAndPostId(userId, id));
             vote.setVoteValue(-1);
             voteService.addVote(vote);
-            postService.downvote(id);
         }
         return "redirect:/index/" + userId;
     }
