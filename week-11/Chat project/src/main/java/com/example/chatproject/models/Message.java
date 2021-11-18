@@ -23,6 +23,9 @@ public class Message {
     @ManyToOne
     User user;
 
+    @ManyToOne
+    Message message;
+
     public Message(String text, Date creationDate, User user) {
         this.text = text;
         this.creationDate = creationDate;

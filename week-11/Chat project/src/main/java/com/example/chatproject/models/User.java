@@ -26,6 +26,9 @@ public class User {
     @OneToMany
     List<Message> messages = new ArrayList<>();
 
+    @OneToOne
+    Channel channel;
+
     public User(String login, String password) {
         this.login = login;
         this.userName = login;
